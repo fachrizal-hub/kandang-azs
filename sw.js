@@ -1,4 +1,4 @@
-const CACHE_NAME = 'kandang-azs-v5';
+const CACHE_NAME = 'kandang-azs-v6';
 const urlsToCache = [
   '/',
   '/index.html',

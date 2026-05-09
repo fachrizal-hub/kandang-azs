@@ -2453,13 +2453,27 @@
       /* ===== PERBAIKAN BOTTOM NAV - TIDAK TERPOTONG DI HP ===== */
       .bottom-nav {
         bottom: calc(12px + env(safe-area-inset-bottom, 0px)) !important;
-        overflow: visible !important;
-        clip-path: none !important;
+        overflow: hidden !important;
+      }
+
+      .nav-item {
+        min-width: 0 !important;
+        flex: 1 1 0 !important;
+        overflow: hidden !important;
       }
 
       .nav-label {
-        overflow: visible !important;
-        white-space: nowrap;
+        font-size: 8.5px !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        white-space: nowrap !important;
+        width: 100% !important;
+        text-align: center !important;
+        display: block !important;
+      }
+
+      .nav-icon {
+        flex-shrink: 0 !important;
       }
 
       .main-content {
