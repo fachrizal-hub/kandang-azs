@@ -2407,9 +2407,6 @@
         background: var(--premium-green);
       }
 
-      
-      }
-
       @media (max-width: 420px) {
         .main-content {
           padding-left: 12px;
@@ -2448,6 +2445,110 @@
         }
         .monitor-label {
           font-size: 8px;
+        }
+      }
+
+      /* ===== TAMPILAN HP - PHONE FRAME (DESKTOP) ===== */
+      @media (min-width: 540px) {
+        body {
+          background:
+            radial-gradient(ellipse 60% 40% at 25% 8%, rgba(26, 107, 47, 0.28) 0%, transparent 60%),
+            radial-gradient(ellipse 55% 55% at 80% 90%, rgba(212, 160, 23, 0.16) 0%, transparent 60%),
+            linear-gradient(175deg, #0e2418 0%, #0b1a10 55%, #091509 100%);
+          min-height: 100vh;
+          display: flex;
+          justify-content: center;
+          align-items: flex-start;
+          padding: 0;
+        }
+
+        #authScreen {
+          width: 430px;
+          min-height: 100vh;
+          flex-shrink: 0;
+          border-radius: 0;
+        }
+
+        #appScreen {
+          width: 430px !important;
+          min-height: 100vh;
+          flex-shrink: 0;
+          box-shadow:
+            -1px 0 0 rgba(255, 255, 255, 0.04),
+            1px 0 0 rgba(255, 255, 255, 0.04),
+            -24px 0 56px rgba(0, 0, 0, 0.35),
+            24px 0 56px rgba(0, 0, 0, 0.35);
+          background: var(--premium-bg, #f7f8f4);
+        }
+
+        .top-bar {
+          position: sticky;
+          top: 0;
+          z-index: 100;
+        }
+
+        .main-content {
+          max-width: 430px !important;
+          width: 100%;
+          padding-left: 14px !important;
+          padding-right: 14px !important;
+        }
+
+        .bottom-nav {
+          position: fixed;
+          left: 50% !important;
+          transform: translateX(-50%) !important;
+          width: calc(430px - 32px) !important;
+          max-width: 398px !important;
+        }
+      }
+
+      /* ===== SMALL PHONE (360px) FIXES ===== */
+      @media (max-width: 380px) {
+        .summary-card-val {
+          font-size: 10px;
+        }
+
+        .monitor-val {
+          font-size: 16px;
+        }
+
+        .dash-stat-val {
+          font-size: 16px;
+        }
+
+        .welcome-title {
+          font-size: 12px;
+        }
+
+        .hewan-name,
+        .customer-name {
+          font-size: 13px;
+        }
+
+        .hewan-price {
+          font-size: 14px;
+        }
+
+        .btn {
+          font-size: 13px;
+          padding: 12px 14px;
+        }
+
+        .auth-card {
+          padding: 24px 18px;
+        }
+
+        .form-control {
+          font-size: 14px;
+        }
+
+        .transaksi-form .form-row {
+          grid-template-columns: 1fr;
+        }
+
+        .summary-cards {
+          gap: 5px;
         }
       }
     </style>
