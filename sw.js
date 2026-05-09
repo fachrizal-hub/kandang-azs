@@ -1,4 +1,4 @@
-const CACHE_NAME = 'kandang-azs-v1';
+const CACHE_NAME = 'kandang-azs-v2';
 const urlsToCache = [
   '/',
   '/index.html',
@@ -30,12 +30,31 @@ self.addEventListener('activate', event => {
   self.clients.claim();
 });
 
-// Fetch (cache first, fallback network)
+// Fetch: HTML selalu coba network dulu agar update GitHub/Vercel cepat masuk.
 self.addEventListener('fetch', event => {
+  const req = event.request;
+  const isHtml =
+    req.mode === 'navigate' ||
+    (req.headers.get('accept') || '').includes('text/html') ||
+    new URL(req.url).pathname.endsWith('/index.html');
+
+  if (isHtml) {
+    event.respondWith(
+      fetch(req)
+        .then(response => {
+          const copy = response.clone();
+          caches.open(CACHE_NAME).then(cache => cache.put(req, copy));
+          return response;
+        })
+        .catch(() => caches.match(req).then(response => response || caches.match('/index.html')))
+    );
+    return;
+  }
+
   event.respondWith(
-    caches.match(event.request)
+    caches.match(req)
       .then(response => {
-        return response || fetch(event.request);
+        return response || fetch(req);
       })
   );
 });
